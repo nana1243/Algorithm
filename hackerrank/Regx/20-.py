@@ -22,12 +22,12 @@ tags = {}
 print(re.findall(p,s))
 
 
-# for tag, p in re.findall(r'<(\w+)\s?(.*?)>', s):
-#     attr = set(a for a in re.findall(r'(\w+)=[\'\"]', p))
-#     if tag not in tags:
-#         tags[tag] = attr
-#     else:
-#         tags[tag] |= attr
-#
-# for tag in sorted(tags.keys()):
-#     print(tag + ':' + ','.join(sorted(tags[tag])))
+for tag, p in re.findall(r'<(\w+)\s?(.*?)>', s):
+    attr = set(a for a in re.findall(r'(\w+)=[\'\"]', p))
+    if tag not in tags:
+        tags[tag] = attr
+    else:
+        tags[tag] |= attr
+
+for tag in sorted(tags.keys()):
+    print(tag + ':' + ','.join(sorted(tags[tag])))

@@ -10,3 +10,5 @@ for element in enumerate(priorities):
 cnt=1
 idx=1
 print(result)
+
+
