@@ -22,3 +22,32 @@ def solution(genres, plays):
                 if cnt==2:
                     break
     return answer
+
+
+
+
+
+
+    ######################### 풀이2#####################
+  
+    g={elm :0 for elm in genres }
+    for i in range(len(plays)):
+        g[genres[i]]=g[genres[i]] + plays[i]
+    g = sorted(g.keys(), key=lambda x: g[x], reverse=True)
+    p=[]
+    for i,j in enumerate(zip(genres,plays)):
+        idx=i
+        genre=j[0]
+        play=j[1]
+        p.append((genre,play,idx))
+    p.sort(key =lambda x:x[1],reverse=True)
+    ans=[]
+    for i in range(len(g)):
+        cnt=0
+        for element in p:
+            if element[0]==g[i] :
+                cnt+=1
+                ans.append(element[2])
+            if cnt==2:
+                break
+    return ans
