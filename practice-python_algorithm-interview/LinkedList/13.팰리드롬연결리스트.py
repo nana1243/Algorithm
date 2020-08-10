@@ -23,7 +23,7 @@ class MyLinkedList:
             curr.next = node
 
 
-    def isPalindrome(self):
+    def isPalindrome1(self):
         head = self.head
         q = deque()
         if not self.head:
@@ -41,12 +41,40 @@ class MyLinkedList:
                 return False
         return True
 
+    def isPalidrome2(self):
+
+        head = self.head
+        rev = None
+        slow = fast = head
+
+        while fast and fast.next:
+            fast = fast.next.next
+            rev,rev.next ,slow = slow,rev,slow.next
+
+        if fast:
+            slow = slow.next
+
+        while rev and rev.data ==slow.data:
+            slow,rev = slow.next , rev.next
+
+        return not rev
+
+
+
+
+
+
+
+
 
 case=MyLinkedList()
 
 case.add(Node(1))
 case.add(Node(2))
-print(case.isPalindrome())
+print(case.isPalindrome1())
 case.add(Node(2))
 case.add(Node(1))
-print(case.isPalindrome())
+print(case.isPalindrome1())
+
+print(case.isPalidrome2())
+
