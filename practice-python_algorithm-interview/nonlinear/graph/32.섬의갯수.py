@@ -5,7 +5,7 @@ testcase=[[1,1,1,1,0],[1,1,0,1,0],[1,1,0,0,0],[0,0,0,0,1]]
 
 class Solution:
     def __init__(self,testcase):
-        self.testcaase=testcase
+        self.testcaase = testcase
         self.ans=[]
 
     # recursion으로 풀이한 방법
