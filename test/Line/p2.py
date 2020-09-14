@@ -18,11 +18,18 @@ def solution(ball, order):
         if ball[0] == out:
             ans.append(ball.popleft())
             while len(ball)!=0  and ball[0] in waiting:
-                ans.append(ball.popleft())
+                out = ball.popleft()
+                waiting.remove(out)
+                ans.append(out)
+
         elif ball[-1]  == out:
             ans.append(ball.pop())
             while len(ball)!=0 and ball[-1] in waiting:
-                ans.append(ball.pop())
+                out = ball.pop()
+                ans.append(out)
+                waiting.remove(out)
+
+
         else:
             waiting.append(out)
 
