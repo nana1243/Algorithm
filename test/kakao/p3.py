@@ -1,6 +1,6 @@
 from collections import Counter
 
-# 정확성 100, 효율성all 통과못함
+
 def infoParsing(information, query):
     information = information.split(" ")
     language = information[0].strip()
